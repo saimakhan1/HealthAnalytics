@@ -62,94 +62,76 @@ export default function Hero() {
 
         {/* Hero visual */}
 
+        {/* Hero Image */}
+
         <div className="relative mx-auto w-full max-w-[520px]">
-          <div className="absolute -left-5 top-10 h-24 w-24 rounded-full bg-[#f7c4ce] opacity-60 blur-2xl" />
+          {/* Decorative background */}
 
-          <div className="relative overflow-hidden rounded-[30px] border-8 border-white bg-white shadow-2xl">
-            <div className="h-[430px] bg-gradient-to-br from-[#7f1025] via-[#a71930] to-[#d92745] p-8">
-              <div className="flex items-center justify-between">
+          <div className="absolute -right-10 -top-10 h-72 w-72 rounded-full bg-[#f7c4ce] opacity-60 blur-3xl" />
+
+          <div className="absolute -bottom-10 -left-10 h-52 w-52 rounded-full bg-[#e8a0ad] opacity-30 blur-3xl" />
+
+          {/* Image container */}
+
+          <div className="relative w-[120%] overflow-hidden rounded-[35px] border-8 border-white shadow-2xl">
+            <img
+              src="/images/hero-doctor.jpg"
+              alt="Professional healthcare doctor"
+              className="h-[560px] w-full object-cover object-center"
+            />
+
+            {/* Image overlay */}
+
+            <div className="absolute inset-x-5 bottom-5 rounded-2xl border border-white/30 bg-white/95 p-4 shadow-xl backdrop-blur">
+              <div className="flex items-center gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#fff1f3] text-xl">
+                  🩺
+                </div>
+
                 <div>
-                  <p className="text-xs text-white/70">HEALTH ANALYTICS</p>
-                  <p className="mt-1 text-lg font-bold text-white">
-                    Patient Overview
+                  <p className="text-sm font-extrabold text-[#5c0b1b]">
+                    Smarter Healthcare
+                  </p>
+
+                  <p className="mt-1 text-xs text-gray-500">
+                    Organized records for better decisions
                   </p>
                 </div>
 
-                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-white/15 text-xl">
-                  ❤️
+                <div className="ml-auto flex h-8 w-8 items-center justify-center rounded-full bg-green-50 text-sm text-green-600">
+                  ✓
                 </div>
-              </div>
-
-              <div className="mt-8 rounded-2xl bg-white p-5 shadow-xl">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-xs text-gray-400">Patient ID</p>
-                    <p className="font-bold text-gray-800">PAT-1001</p>
-                  </div>
-
-                  <span className="rounded-full bg-green-50 px-3 py-1 text-xs font-bold text-green-600">
-                    Active
-                  </span>
-                </div>
-
-                <div className="mt-6 grid grid-cols-2 gap-3">
-                  <div className="rounded-xl bg-[#fff1f3] p-4">
-                    <p className="text-xs text-gray-500">Consultations</p>
-                    <p className="mt-1 text-2xl font-extrabold text-[#a71930]">
-                      08
-                    </p>
-                  </div>
-
-                  <div className="rounded-xl bg-[#fff1f3] p-4">
-                    <p className="text-xs text-gray-500">Reports</p>
-                    <p className="mt-1 text-2xl font-extrabold text-[#a71930]">
-                      14
-                    </p>
-                  </div>
-                </div>
-
-                <div className="mt-4 rounded-xl border border-gray-100 p-4">
-                  <p className="text-xs font-semibold text-gray-500">
-                    Recent Health Record
-                  </p>
-
-                  <div className="mt-3 flex items-center justify-between">
-                    <div>
-                      <p className="text-sm font-bold text-gray-800">
-                        Blood Pressure
-                      </p>
-                      <p className="text-xs text-gray-400">Aug 23, 2026</p>
-                    </div>
-
-                    <p className="font-extrabold text-[#a71930]">120/80</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-5 flex items-center justify-between rounded-xl bg-white/10 px-4 py-3">
-                <span className="text-xs text-white">AI document analysis</span>
-
-                <span className="rounded-full bg-white px-3 py-1 text-[10px] font-bold text-[#a71930]">
-                  ANALYZED
-                </span>
               </div>
             </div>
           </div>
 
-          {/* Floating card */}
+          {/* Floating statistics card */}
 
-          <div className="absolute -bottom-6 -left-4 rounded-2xl bg-white p-4 shadow-xl sm:-left-8">
+          <div className="absolute -left-6 top-16 rounded-2xl bg-white p-4 shadow-xl sm:-left-10">
             <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-green-50 text-xl">
-                ✓
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#fff1f3] text-lg">
+                ❤️
               </div>
 
               <div>
-                <p className="text-sm font-bold text-gray-800">
-                  Health Records
-                </p>
-                <p className="text-xs text-gray-500">Successfully Organized</p>
+                <p className="text-lg font-extrabold text-[#7f1025]">24/7</p>
+
+                <p className="text-[11px] text-gray-500">Health Support</p>
               </div>
+            </div>
+          </div>
+
+          {/* Floating AI card */}
+
+          <div className="absolute -right-4 top-1/2 rounded-2xl bg-[#7f1025] px-5 py-4 text-white shadow-xl sm:-right-8">
+            <p className="text-[10px] font-medium uppercase tracking-wider text-white/60">
+              AI Analysis
+            </p>
+
+            <div className="mt-1 flex items-center gap-2">
+              <span className="h-2.5 w-2.5 rounded-full bg-green-400" />
+
+              <span className="text-sm font-bold">Medical Record Ready</span>
             </div>
           </div>
         </div>
