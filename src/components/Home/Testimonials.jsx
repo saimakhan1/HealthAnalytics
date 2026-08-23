@@ -53,7 +53,7 @@
 
 const testimonials = [
   {
-    name: "Dr. Sarah Ahmed",
+    name: "Dr. Saiman Ahmed",
     role: "General Physician",
     image: "/images/doctor-portrait.jpg",
     text: "Having historical records organized in one place makes it much easier to understand a patient's previous treatment.",

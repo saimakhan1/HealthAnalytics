@@ -1,0 +1,242 @@
+"use client";
+
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+
+export default function RegisterForm() {
+  const router = useRouter();
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    role: "patient",
+    adminKey: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData((previous) => ({
+      ...previous,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    setError("");
+
+    if (formData.password !== formData.confirmPassword) {
+      setError("Passwords do not match.");
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const response = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          password: formData.password,
+          role: formData.role,
+          adminKey: formData.adminKey,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.message || "Registration failed.");
+        return;
+      }
+
+      // Redirect according to role
+
+      if (data.user.role === "patient") {
+        router.push("/dashboard/patient");
+      } else if (data.user.role === "doctor") {
+        router.push("/dashboard/doctor");
+      } else if (data.user.role === "admin") {
+        router.push("/dashboard/admin");
+      }
+    } catch (error) {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-[#fff8f9] px-4 py-12">
+      <div className="mx-auto max-w-lg rounded-3xl bg-white p-8 shadow-xl">
+        <div className="mb-8 text-center">
+          <h1 className="text-3xl font-bold text-[#681225]">
+            Create Your Account
+          </h1>
+
+          <p className="mt-2 text-sm text-gray-500">
+            Join our smart healthcare platform
+          </p>
+        </div>
+
+        {error && (
+          <div className="mb-5 rounded-xl bg-red-50 p-3 text-sm text-red-600">
+            {error}
+          </div>
+        )}
+
+        <form onSubmit={handleSubmit} className="space-y-5">
+          {/* Name */}
+
+          <div>
+            <label className="mb-2 block text-sm font-semibold">
+              Full Name
+            </label>
+
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              className="w-full rounded-xl border px-4 py-3 outline-none focus:border-[#a71930]"
+              placeholder="Enter your full name"
+            />
+          </div>
+
+          {/* Email */}
+
+          <div>
+            <label className="mb-2 block text-sm font-semibold">
+              Email Address
+            </label>
+
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="w-full rounded-xl border px-4 py-3 outline-none focus:border-[#a71930]"
+              placeholder="you@example.com"
+            />
+          </div>
+
+          {/* Password */}
+
+          <div>
+            <label className="mb-2 block text-sm font-semibold">Password</label>
+
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+              minLength={6}
+              className="w-full rounded-xl border px-4 py-3 outline-none focus:border-[#a71930]"
+              placeholder="Minimum 6 characters"
+            />
+          </div>
+
+          {/* Confirm Password */}
+
+          <div>
+            <label className="mb-2 block text-sm font-semibold">
+              Confirm Password
+            </label>
+
+            <input
+              type="password"
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              required
+              className="w-full rounded-xl border px-4 py-3 outline-none focus:border-[#a71930]"
+              placeholder="Confirm your password"
+            />
+          </div>
+
+          {/* Role */}
+
+          <div>
+            <label className="mb-3 block text-sm font-semibold">
+              Register As
+            </label>
+
+            <div className="grid grid-cols-3 gap-3">
+              {["patient", "doctor", "admin"].map((role) => (
+                <label
+                  key={role}
+                  className={`cursor-pointer rounded-xl border p-3 text-center text-sm capitalize ${
+                    formData.role === role
+                      ? "border-[#a71930] bg-[#fff1f3] text-[#a71930]"
+                      : "border-gray-200"
+                  }`}
+                >
+                  <input
+                    type="radio"
+                    name="role"
+                    value={role}
+                    checked={formData.role === role}
+                    onChange={handleChange}
+                    className="sr-only"
+                  />
+
+                  {role}
+                </label>
+              ))}
+            </div>
+          </div>
+
+          {/* Admin Key */}
+
+          {formData.role === "admin" && (
+            <div>
+              <label className="mb-2 block text-sm font-semibold">
+                Admin Registration Key
+              </label>
+
+              <input
+                type="password"
+                name="adminKey"
+                value={formData.adminKey}
+                onChange={handleChange}
+                required
+                className="w-full rounded-xl border px-4 py-3 outline-none focus:border-[#a71930]"
+                placeholder="Enter admin key"
+              />
+            </div>
+          )}
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full rounded-xl bg-[#8f1730] py-3.5 font-bold text-white transition hover:bg-[#6f1024] disabled:opacity-60"
+          >
+            {loading ? "Creating Account..." : "Create Account"}
+          </button>
+        </form>
+
+        <p className="mt-6 text-center text-sm text-gray-500">
+          Already have an account?{" "}
+          <Link href="/login" className="font-bold text-[#a71930]">
+            Login
+          </Link>
+        </p>
+      </div>
+    </div>
+  );
+}
