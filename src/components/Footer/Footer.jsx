@@ -63,7 +63,7 @@ export default function Footer() {
         <div className="container-custom flex flex-col gap-3 py-5 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
           <p>© 2026 MediCare Health Analytics. All rights reserved.</p>
 
-          <p>Built for healthcare management.</p>
+          <p>Built for healthcare management.|Saima Khan| WEB12-0894</p>
         </div>
       </div>
     </footer>
