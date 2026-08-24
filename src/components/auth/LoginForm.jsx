@@ -12,8 +12,22 @@ export default function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const redirectUser = (role) => {
+    if (role === "patient") {
+      router.push("/dashboard/patient");
+    }
+
+    if (role === "doctor") {
+      router.push("/dashboard/doctor");
+    }
+
+    if (role === "admin") {
+      router.push("/dashboard/admin");
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,6 +41,7 @@ export default function LoginForm() {
         headers: {
           "Content-Type": "application/json",
         },
+        credentials: "include",
         body: JSON.stringify({
           email,
           password,
@@ -42,14 +57,9 @@ export default function LoginForm() {
 
       await refreshUser();
 
-      if (data.user.role === "patient") {
-        router.push("/dashboard/patient");
-      } else if (data.user.role === "doctor") {
-        router.push("/dashboard/doctor");
-      } else if (data.user.role === "admin") {
-        router.push("/dashboard/admin");
-      }
+      redirectUser(data.user.role);
     } catch (error) {
+      console.error(error);
       setError("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
@@ -62,8 +72,8 @@ export default function LoginForm() {
         <div className="mb-8 text-center">
           <h1 className="text-3xl font-bold text-[#681225]">Welcome Back</h1>
 
-          <p className="mt-2 text-sm text-gray-500">
-            Login to access your healthcare dashboard
+          <p className="mt-2 text-gray-500">
+            Login to your HealthAnalytics account
           </p>
         </div>
 
@@ -75,16 +85,14 @@ export default function LoginForm() {
 
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
-            <label className="mb-2 block text-sm font-semibold">
-              Email Address
-            </label>
+            <label className="mb-2 block text-sm font-semibold">Email</label>
 
             <input
               type="email"
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full rounded-xl border px-4 py-3 outline-none focus:border-[#a71930]"
+              className="w-full rounded-xl border px-4 py-3 focus:border-[#8f1730] focus:outline-none"
               placeholder="you@example.com"
             />
           </div>
@@ -97,7 +105,7 @@ export default function LoginForm() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full rounded-xl border px-4 py-3 outline-none focus:border-[#a71930]"
+              className="w-full rounded-xl border px-4 py-3 focus:border-[#8f1730] focus:outline-none"
               placeholder="Enter your password"
             />
           </div>
@@ -105,16 +113,34 @@ export default function LoginForm() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-xl bg-[#8f1730] py-3.5 font-bold text-white transition hover:bg-[#6f1024] disabled:opacity-60"
+            className="w-full rounded-xl bg-[#8f1730] py-3.5 font-bold text-white hover:bg-[#6f1024] disabled:opacity-60"
           >
             {loading ? "Logging in..." : "Login"}
           </button>
         </form>
 
+        <div className="my-6 flex items-center gap-3">
+          <div className="h-px flex-1 bg-gray-200" />
+
+          <span className="text-sm text-gray-400">OR</span>
+
+          <div className="h-px flex-1 bg-gray-200" />
+        </div>
+
+        {/* Google button will be connected in Step 13 */}
+
+        <button
+          type="button"
+          className="flex w-full items-center justify-center gap-3 rounded-xl border border-gray-200 py-3 font-semibold hover:bg-gray-50"
+        >
+          <span className="text-lg">G</span>
+          Continue with Google
+        </button>
+
         <p className="mt-6 text-center text-sm text-gray-500">
           Don't have an account?{" "}
-          <Link href="/register" className="font-bold text-[#a71930]">
-            Register
+          <Link href="/register" className="font-bold text-[#8f1730]">
+            Create Account
           </Link>
         </p>
       </div>

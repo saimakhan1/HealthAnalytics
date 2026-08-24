@@ -27,6 +27,40 @@ body {
 
 @import "tailwindcss";
 
+/* ================================
+   Dashboard Utilities
+================================ */
+
+.dashboard-card {
+  background: var(--white);
+  border: 1px solid #f0e4e6;
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.dashboard-title {
+  color: var(--primary-deep);
+  font-weight: 800;
+}
+
+.dashboard-muted {
+  color: var(--muted);
+}
+
+/* Smooth focus states */
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+/* Remove default button appearance */
+
+button:disabled {
+  cursor: not-allowed;
+}
+
 :root {
   --primary: #a71930;
   --primary-dark: #7f1025;
