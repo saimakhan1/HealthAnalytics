@@ -69,22 +69,22 @@ export default function DoctorDashboard() {
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <StatCard
           title="Patients"
-          value="0"
+          // value="0"
           description="Patients available in the system"
           icon={Users}
         />
 
         <StatCard
-          title="Records Reviewed"
-          value="0"
+          title="Records Review"
+          // value="0"
           description="AI structured medical records"
           icon={FileText}
           variant="green"
         />
 
         <StatCard
-          title="Medicines Tracked"
-          value="0"
+          title="Medicines "
+          // value="0"
           description="Medication records analyzed"
           icon={Pill}
           variant="orange"
@@ -92,7 +92,7 @@ export default function DoctorDashboard() {
 
         <StatCard
           title="Test Results"
-          value="0"
+          // value="0"
           description="Diagnostic records available"
           icon={Activity}
           variant="purple"

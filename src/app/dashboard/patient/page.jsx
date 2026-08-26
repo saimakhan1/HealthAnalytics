@@ -71,31 +71,31 @@ export default function PatientDashboard() {
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <StatCard
           title="Health Records"
-          value="0"
-          description="AI processed medical records"
+          // value="0"
+          // description="AI processed medical records"
           icon={FileText}
         />
 
         <StatCard
           title="Consultations"
-          value="0"
-          description="Total consultation history"
+          // value="0"
+          // description="Total consultation history"
           icon={Stethoscope}
           variant="green"
         />
 
         <StatCard
           title="Medicines"
-          value="0"
-          description="Medicines found in records"
+          // value="0"
+          // description="Medicines found in records"
           icon={Pill}
           variant="orange"
         />
 
         <StatCard
           title="Test Results"
-          value="0"
-          description="Diagnostic results available"
+          // value="0"
+          // description="Diagnostic results available"
           icon={Activity}
           variant="purple"
         />
