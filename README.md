@@ -3,6 +3,7 @@
 A comprehensive, role-based healthcare platform built to streamline the interactions between Patients, Doctors, and Administrators. The system provides personal health tracking, dynamic appointment scheduling, digital prescription management, and overall platform analytics.
 
 🚀 **Live Demo:** https://health-analytics-gray.vercel.app/
+Github: https://github.com/saimakhan1/HealthAnalytics
 
 ---
 
