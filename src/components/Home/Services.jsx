@@ -7,9 +7,9 @@ const services = [
   },
   {
     icon: "🤖",
-    title: "AI Health Extraction",
+    title: "Smart Health Extraction",
     description:
-      "AI reads your documents and extracts medicines, symptoms, vital signs and test results.",
+      "Doctors along with reliable algorithms reads your documents and extracts medicines, symptoms, vital signs and test results.",
   },
   {
     icon: "📊",

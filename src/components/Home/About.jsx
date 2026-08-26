@@ -14,7 +14,7 @@ export default function About() {
             <div className="mt-10 rounded-3xl bg-white p-8 shadow-lg">
               <p className="text-4xl font-extrabold text-[#a71930]">02</p>
               <p className="mt-3 text-sm leading-6 text-gray-500">
-                Let AI organize important medical information.
+                Keep your important medical information organized.
               </p>
             </div>
 
@@ -54,7 +54,7 @@ export default function About() {
           <div className="mt-7 space-y-4">
             {[
               "Organized medical history",
-              "AI-powered document extraction",
+              "Smart Document extraction",
               "Doctor-friendly health analytics",
               "Easy access to historical records",
             ].map((item) => (

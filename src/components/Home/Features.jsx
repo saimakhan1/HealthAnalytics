@@ -13,9 +13,9 @@ const features = [
   },
   {
     icon: "🧠",
-    title: "AI Assisted",
+    title: "Structured Information",
     description:
-      "AI helps convert unstructured medical documents into structured information.",
+      "Medical documents are organized into clear, structured information for easier access and management.",
   },
   {
     icon: "📱",

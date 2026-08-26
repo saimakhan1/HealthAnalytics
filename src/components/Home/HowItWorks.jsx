@@ -11,9 +11,9 @@ const steps = [
   },
   {
     number: "03",
-    title: "AI Reads the Record",
+    title: "Structured Medical Records",
     description:
-      "Our AI extracts important medical information and structures it.",
+      "Important medical information is organized clearly for easy understanding.",
   },
   {
     number: "04",

@@ -11,7 +11,7 @@ export default function Hero() {
         <div>
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#f1bdc7] bg-white px-4 py-2 text-xs font-bold text-[#a71930]">
             <span className="h-2 w-2 rounded-full bg-[#a71930]" />
-            AI-Powered Healthcare Management
+            Healthcare Management
           </div>
 
           <h1 className="max-w-650 text-4xl font-extrabold leading-[1.1] text-[#5c0b1b] sm:text-5xl lg:text-6xl">
@@ -21,8 +21,8 @@ export default function Hero() {
 
           <p className="mt-6 max-w-xl text-base leading-8 text-gray-600 sm:text-lg">
             Organize prescriptions, medical reports and test results in one
-            secure place. Our AI-powered platform transforms complex medical
-            documents into a clear health timeline for patients and doctors.
+            secure place. Our platform transforms complex medical documents into
+            a clear health timeline for patients and doctors.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -125,7 +125,7 @@ export default function Hero() {
 
           <div className="absolute -right-4 top-1/2 rounded-2xl bg-[#7f1025] px-5 py-4 text-white shadow-xl sm:-right-8">
             <p className="text-[10px] font-medium uppercase tracking-wider text-white/60">
-              AI Analysis
+              Medical Insights
             </p>
 
             <div className="mt-1 flex items-center gap-2">

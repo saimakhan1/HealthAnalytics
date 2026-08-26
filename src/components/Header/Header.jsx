@@ -133,10 +133,10 @@ export default function Header() {
 
   const navItems = [
     { name: "Home", href: "/" },
-    { name: "About", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "How It Works", href: "#how-it-works" },
-    { name: "Contact", href: "#contact" },
+    { name: "About", href: "/#about" },
+    { name: "Services", href: "/#services" },
+    { name: "How It Works", href: "/#how-it-works" },
+    { name: "Contact", href: "/#contact" },
   ];
 
   // Determine dashboard based on logged-in user's role

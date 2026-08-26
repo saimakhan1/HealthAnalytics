@@ -10,8 +10,8 @@ export default function Footer() {
           </Link>
 
           <p className="mt-4 max-w-sm text-sm leading-7 text-white/60">
-            An AI-powered health analytics platform designed to organize medical
-            information for patients and doctors.
+            A health analytics platform designed to organize medical information
+            for patients and doctors.
           </p>
         </div>
 
